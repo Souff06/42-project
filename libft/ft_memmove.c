@@ -25,7 +25,7 @@ void *ft_memmove(void *dest, const void *src, size_t n)
         return (dest);
     if (d < s)
         ft_memcpy(dest, src, n);
-    else // (d > s)
+    else /* (d > s) */
     {
         d = d + n;
         s = s + n;
