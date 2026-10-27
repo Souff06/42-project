@@ -12,33 +12,28 @@
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char *str;
-    size_t lens;
+	char	*str;
+	size_t	lens;
+	size_t	i;
 
-    if (!s)
-    return (NULL);
-
-lens = ft_strlen(s);
-
-if (start >= lens)
-    len = 0;
-else if (len > lens - start)
-    len = lens - start;
-
-str = malloc(len + 1);
-if (!str)
-    return (NULL);
-
-size_t i = 0;
-while (i < len)
-{
-    str[i] = s[start + i];
-    i++;
+	if (!s)
+		return (NULL);
+	lens = ft_strlen(s);
+	if (start >= lens)
+		len = 0;
+	else if (len > lens - start)
+		len = lens - start;
+	str = malloc(len + 1);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
-str[i] = '\0';
-
-return (str); 
-}
-

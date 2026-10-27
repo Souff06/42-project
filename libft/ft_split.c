@@ -28,7 +28,7 @@ static size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-static void	ft_free_split(char **array, size_t count)
+static char	**ft_free_split(char **array, size_t count)
 {
 	size_t	i;
 
@@ -39,6 +39,7 @@ static void	ft_free_split(char **array, size_t count)
 		i++;
 	}
 	free(array);
+	return (NULL);
 }
 
 static char	**ft_fill_words(char **array, char const *s, char c)
@@ -60,10 +61,7 @@ static char	**ft_fill_words(char **array, char const *s, char c)
 			length = i - start;
 			array[index] = ft_substr(s, start, length);
 			if (!array[index])
-			{
-				ft_free_split(array, index);
-				return (NULL);
-			}
+				return (ft_free_split(array, index));
 			index++;
 		}
 		else
